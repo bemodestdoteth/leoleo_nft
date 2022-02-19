@@ -7,47 +7,5 @@
 
 그 다음
 - 민팅 웹페이지 프론트 디자인
-- Generative art 컨트랙
-- 화리따는 것은 수작업으로도 가능 (인원이 작으니까)
-
-* * *
-## Resources(Contract)
-https://ko.docs.klaytn.com/dapp/sdk/caver-js/api-references/caver.kct/kip17
-KIP-17 민팅 컨트랙 docs with caver.js
-
-https://forum.klaytn.com/t/nft/3768
-Nft 민팅 함수 구현시 질문이 있습니다
-
-https://forum.klaytn.com/t/klaytn/3583
-klaytn 기반 민팅 웹사이트
-
-https://forum.klaytn.com/t/nft/3420
-Nft를 민팅할 수 있는 사이트를 개발하고 싶습니다
-
-가스비: 배치 민팅으로 한 번 컨트랙 실행 > 개별 민팅
-
-https://github.com/klaytn/caver-js-examples
-caver.js examples
-
-https://github.com/klaytn/klaytn-nft-minter-backend
-https://github.com/klaytn/klaytn-nft-minter-frontend
-예제 코드
-
-https://www.youtube.com/watch?v=E4Gli5JloN0
-KIP-17 민팅 컨트랙 튜토리얼
-
-* * *
-## Resources(Web)
-https://forum.klaytn.com/t/kas-api-kaikas-klip/3541/2
-KAS API사용과 관련하여 Kaikas, Klip 지갑 연동 관련질문
-
-https://docs.kaikas.io/02_api_reference/02_caver_methods
-https://docs.klipwallet.com/a2a-sdk/a2a-sdk-js
-Kaikas, Klip docs
-
-https://github.com/klaytn/kaikas-tutorial
-kaikas tutorial
-
-https://github.com/klaytn/klaytn-nft-minter-backend
-https://github.com/klaytn/klaytn-nft-minter-frontend
-예제 코드
+- Generative art 컨트랙에 집어 넣기
+- 화리따기: 수작업으로 가능 (인원이 작으니까)
