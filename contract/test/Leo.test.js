@@ -7,7 +7,7 @@ require('chai')
     .use(require('chai-as-promised'))
     .should()
 
-contract('Color', (accounts)) =>
+contract('Leo', (accounts) =>
 {
     let contract
 
@@ -29,7 +29,14 @@ contract('Color', (accounts)) =>
 
         it('has a name', async () =>
         {
-            const name = await constact.name()
+            const name = await contract.name()
+            assert.equal(name, 'Leo')
+        })
+
+        it('has a symbol', async () =>
+        {
+            const symbol = await contract.symbol()
+            assert.equal(symbol, 'LEO' )
         })
     })
-}
+})
