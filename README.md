@@ -10,9 +10,8 @@
 - Generative art 컨트랙
 - 화리따는 것은 수작업으로도 가능 (인원이 작으니까)
 
---------------------------------------------
-Resources
-
+* * *
+## Resources(Contract)
 https://ko.docs.klaytn.com/dapp/sdk/caver-js/api-references/caver.kct/kip17
 KIP-17 민팅 컨트랙 docs with caver.js
 
@@ -29,6 +28,22 @@ Nft를 민팅할 수 있는 사이트를 개발하고 싶습니다
 
 https://github.com/klaytn/caver-js-examples
 caver.js examples
+
+https://github.com/klaytn/klaytn-nft-minter-backend
+https://github.com/klaytn/klaytn-nft-minter-frontend
+예제 코드
+
+https://www.youtube.com/watch?v=E4Gli5JloN0
+KIP-17 민팅 컨트랙 튜토리얼
+
+* * *
+## Resources(Web)
+https://forum.klaytn.com/t/kas-api-kaikas-klip/3541/2
+KAS API사용과 관련하여 Kaikas, Klip 지갑 연동 관련질문
+
+https://docs.kaikas.io/02_api_reference/02_caver_methods
+https://docs.klipwallet.com/a2a-sdk/a2a-sdk-js
+Kaikas, Klip docs
 
 https://github.com/klaytn/kaikas-tutorial
 kaikas tutorial
