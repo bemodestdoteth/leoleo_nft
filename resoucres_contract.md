@@ -23,5 +23,8 @@ https://github.com/klaytn/klaytn-nft-minter-backend
 https://github.com/klaytn/klaytn-nft-minter-frontend
 예제 코드
 
+https://www.youtube.com/watch?v=YPbgjPPC1d0
+ERC-721 민팅 컨트랙 튜토리얼
+
 https://www.youtube.com/watch?v=E4Gli5JloN0
 KIP-17 민팅 컨트랙 튜토리얼
