@@ -2,6 +2,7 @@
 최우선
 1. 민팅 컨트랙
 2. 민팅 웹페이지 with 카이카스 & 클립
+
 ※ 민팅 웹페이지 제작이 미뤄지면 민팅 컨트랙만 만들어 우리가 민팅하고 구글 폼에 지갑 주소를 받에서 에어드롭하는 방식도 고려 가능.
 
 그 다음
@@ -11,6 +12,9 @@
 
 --------------------------------------------
 Resources
+
+https://ko.docs.klaytn.com/dapp/sdk/caver-js/api-references/caver.kct/kip17
+KIP-17 민팅 컨트랙 docs with caver.js
 
 https://forum.klaytn.com/t/nft/3768
 Nft 민팅 함수 구현시 질문이 있습니다
@@ -22,9 +26,6 @@ https://forum.klaytn.com/t/nft/3420
 Nft를 민팅할 수 있는 사이트를 개발하고 싶습니다
 
 가스비: 배치 민팅으로 한 번 컨트랙 실행 > 개별 민팅
-
-https://ko.docs.klaytn.com/dapp/sdk/caver-js/api-references/caver.kct/kip17
-KIP-17 민팅 컨트랙 docs with caver.js
 
 https://github.com/klaytn/caver-js-examples
 caver.js examples
