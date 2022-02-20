@@ -9,3 +9,7 @@
 - 민팅 웹페이지 프론트 디자인
 - Generative art 컨트랙에 집어 넣기
 - 화리따기: 수작업으로 가능 (인원이 작으니까)
+
+2/20
+TryLeoNFT 오픈씨 테스트넷에서 확인 가능
+📌https://testnets.opensea.io/collection/tryleonft
