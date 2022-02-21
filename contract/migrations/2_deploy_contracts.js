@@ -1,5 +1,5 @@
 // 컨트랙 path를 truggle-config에 적어놔서 파일명만 적어도 된다.
-const Leo = artifacts.require('Leo');
+const Leo = artifacts.require("Leo");
 
 // Anonymous function with async
 module.exports = async function(deployer)

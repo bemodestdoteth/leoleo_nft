@@ -28,3 +28,14 @@ ERC-721 민팅 컨트랙 튜토리얼
 
 https://www.youtube.com/watch?v=E4Gli5JloN0
 KIP-17 민팅 컨트랙 튜토리얼
+
+https://merrily-codMe.tistory.com/102
+Solidity Storage와 Memory
+
+https://merrily-code.tistory.com/103?category=962149
+Solidity is = inheritance, 상속받은 contract는 부모 contract의 internal 함수 사용 가능.
+
+https://docs.openzeppelin.com/contracts/3.x/api/token/erc721
+IERC721: Required interface of an ERC721 compliant contract.
+
+The EIP consists of three interfaces, found here as IERC721, IERC721Metadata, and IERC721Enumerable. Only the first one is required in a contract to be ERC721 compliant. However, all three are implemented in ERC721
