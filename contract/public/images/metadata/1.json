@@ -1,0 +1,15 @@
+{
+    "image": "./metadata/1.png",
+    "tokenId": 1,
+    "name": "LeoLeo 1",
+    "attributes": [
+        {
+            "trait_type": "Face",
+            "value": "2"
+        },
+        {
+            "trait_type": "Background",
+            "value": "2"
+        }
+    ]
+}

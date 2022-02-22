@@ -16,7 +16,7 @@ contract Leo is ERC721
         require(owner == msg.sender, "Ownable: caller is not the owner."); _;
     }
 
-    // _color: to tell solidity that it's a local variable.
+    // _tokenURI: to tell solidity that it's a local variable.
     function mintLeo(string memory _tokenURI, address _recipient) public onlyOwner returns(uint256)
     {
         uint256 _newItemId = 1;

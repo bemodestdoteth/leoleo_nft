@@ -19,7 +19,8 @@ https://aws.amazon.com/ko/blogs/database/mint-and-deploy-nfts-to-the-ethereum-bl
 AWS s3에 NFT 메타데이터 저장
 
 https://github.com/HashLips/hashlips_nft_contract/blob/main/contract/SimpleNft.sol
-민팅 컨트랙 예제 1
+https://github.com/HashLips/solidity_smart_contracts
+민팅 컨트랙 예제 1 + reveal
 
 https://betterprogramming.pub/how-to-deploy-nft-smart-contracts-9271ce5e91c0
 민팅 컨트랙 예제 2
@@ -31,7 +32,7 @@ https://www.freecodecamp.org/news/how-to-make-an-nft-and-render-on-opensea-marke
 민팅 컨트랙 예제 4
 
 https://github.com/boyd-dev/alice-NFT
-민팅 컨트랙 예제 5
+JS로 TokenURI 솔리디티로 옮기기
 
 https://github.com/syl-codes/kongz-contract-v1
 메타콩즈 컨트랙?
@@ -46,3 +47,6 @@ The tokenURI on an NFT is a unique identifier of what the token "looks" like. A 
 
 https://danielmiessler.com/study/difference-between-uri-url/
 URI(identifier of specific resources) vs URL(URI with path)
+
+https://betterprogramming.pub/create-your-own-nft-collection-with-python-82af40abf99f
+how to make geneartive arts
