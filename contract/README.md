@@ -2,6 +2,8 @@
 - KIP-17 or ERC-721
 - caver.js or KAS
 - ipsd or AWS s3
+- Truffle or Hardhat
+- 
 
 https://www.daleseo.com/jest-before-after/
 Jest로 테스트 전/후 처리하기
@@ -18,7 +20,6 @@ NFT Metadata
 https://aws.amazon.com/ko/blogs/database/mint-and-deploy-nfts-to-the-ethereum-blockchain-using-amazon-managed-blockchain/
 AWS s3에 NFT 메타데이터 저장
 
-https://github.com/HashLips/hashlips_nft_contract/blob/main/contract/SimpleNft.sol
 https://github.com/HashLips/solidity_smart_contracts
 민팅 컨트랙 예제 1 + reveal
 
@@ -50,3 +51,15 @@ URI(identifier of specific resources) vs URL(URI with path)
 
 https://betterprogramming.pub/create-your-own-nft-collection-with-python-82af40abf99f
 how to make geneartive arts
+
+t.ly/2h6y
+SyntaxError: Cannot use import statement outside a module
+
+https://forum.openzeppelin.com/t/function-settokenuri-in-erc721-is-gone-with-pragma-0-8-0/5978
+setTokenURI를 override해서 사용해라
+
+https://spdx.org/licenses/
+SPDX license lists
+
+https://stackoverflow.com/questions/64327052/in-s3-bucket-what-is-the-difference-between-public-and-objects-can-be-public
+public vs can be public

@@ -36,7 +36,12 @@ contract('Leo', (accounts) =>
         it('has a symbol', async () =>
         {
             const symbol = await contract.symbol()
-            assert.equal(symbol, 'LEO' )
+            assert.equal(symbol, 'LEO')
         })
+    })
+
+    describe('minting', async () => 
+    {
+        await contract.mint('213')
     })
 })
