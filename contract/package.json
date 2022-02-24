@@ -1,0 +1,18 @@
+{
+  "name": "leoleo-nft",
+  "version": "1.0.0",
+  "description": "Smiling Lion in KyungHee",
+  "repository": "https://github.com/KS-Sh1n/Mint_Leo.git",
+  "author": "Smiling Lion Blockchain Club",
+  "homepage": "https://github.com/KS-Sh1n/Mint_Leo",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.0",
+    "caver-js": "^1.5.0",
+    "caver-js-ext-kas": "^1.0.1",
+    "concurrently": "^5.3.0",
+    "ganache-cli": "^6.12.1",
+    "truffle": "^5.1.23",
+    "truffle-flattener": "^1.6.0",
+    "truffle-hdwallet-provider-klaytn": "^1.0.13-a"
+  }
+}
