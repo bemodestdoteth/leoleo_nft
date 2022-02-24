@@ -6,7 +6,7 @@ import "./klaytn-contracts/token/KIP17/KIP17Mintable.sol";
 import "./klaytn-contracts/token/KIP17/KIP17Pausable.sol";
 
 // 온체인 트리거 기반 가변 URI를 가진 NFT의 샘플 구현
-contract SampleNFT is KIP17Full("SampleNFT ", "NFT"), KIP17Mintable, KIP17Pausable {
+contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, KIP17Pausable {
 
     event SetVariableBaseUri(address indexed minter, string uri);
     event SetTokenUriIndex(uint256 tokenId, uint256 index);

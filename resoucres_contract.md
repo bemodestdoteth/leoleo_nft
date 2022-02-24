@@ -103,6 +103,12 @@ Nft를 민팅할 수 있는 사이트를 개발하고 싶습니다
 https://github.com/klaytn/caver-js-examples
 caver.js examples
 
+https://stackoverflow.com/questions/52048536/correct-syntax-to-import-constants-in-es6
+JavaScript export import
+
+t.ly/9Qzh
+Javascript require exports.
+
 https://github.com/klaytn/klaytn-nft-minter-backend
 https://github.com/klaytn/klaytn-nft-minter-frontend
 예제 코드

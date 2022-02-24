@@ -21,124 +21,102 @@
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
+const fs = require('fs');
+const path = require("path");
+const Caver = require('caver-js')
+// const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-// require('babel-register');
-// require('babel-polyfill');
-const Caver = require('caver-js');
-const Keys = require('./private-keys.js');
-
-// klaytn-contracts/truffle-config.js:29
+// Klaytn (Baobab and Cypress)
+const Keys = require("./private-keys.js") // gitignored
 const accessKeyId = Keys.accessKeyId;
 const secretAccessKey = Keys.secretAccessKey;
-// Klaytn (Baobab and Cypress)
-const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 const privateKey = Keys.privateKey;
 const cypressPrivateKey = Keys.cypressPrivateKey;
+const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 
-module.exports = 
-{  /**
-    * Networks define how you connect to your ethereum client and let you set the
-    * defaults web3 uses to send transactions. If you don't specify one truffle
-    * will spin up a development blockchain for you on port 9545 when you
-    * run `develop` or `test`. You can ask a truffle command to use a specific
-    * network from the command line, e.g
-    *
-    * $ truffle test --network <network-name>
-    */
-    networks:
-    {
-        // Useful for testing. The `development` name is special - truffle uses it by default
-        // if it's defined here and no other network is specified at the command line.
-        // You should run a client (like ganache-cli, geth or parity) in a separate terminal
-        // tab if you use this network and you must also set the `host`, `port` and `network_id`
-        // options below to some value.
-        //
-        // for ganache
-        development:
-        {
-            host: "127.0.0.1:", // Localhost (default: none)
-            port: 7545,         // Ganache port
-            network_id: "1"     // Any network (default: none)
-        },
-        klaytn: {
-            provider: () => {
-              const pks = JSON.parse(fs.readFileSync(path.resolve(__dirname)+'/privateKeys.js'))
-      
-              return new HDWalletProvider(pks, "http://localhost:8551", 0, pks.length)
-            },
-            network_id: '203', //Klaytn baobab testnet's network id
-            gas: '8500000',
-            gasPrice: null
-        },
-        kasBaobab: {
-            provider: () => {
-              const option = {
-                headers: [
-                  { name: 'Authorization', value: 'Basic ' + Buffer.from(accessKeyId + ':' + secretAccessKey).toString('base64') },
-                  { name: 'x-chain-id', value: '1001' }
-                ],
-                keepAlive: false,
-              }
-              return new HDWalletProvider(privateKey, new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn", option))
-            },
-            network_id: '1001', //Klaytn baobab testnet's network id
-            gas: '8500000',
-            gasPrice:'25000000000'
-        },
-        kasCypress: {
-            provider: () => {
-              const option = {
-                headers: [
-                  { name: 'Authorization', value: 'Basic ' + Buffer.from(accessKeyId + ':' + secretAccessKey).toString('base64') },
-                  { name: 'x-chain-id', value: '8217' }
-                ],
-                keepAlive: false,
-              }
-              return new HDWalletProvider(cypressPrivateKey, new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn", option))
-            },
-            network_id: '8217', //Klaytn baobab testnet's network id
-            gas: '8500000',
-            gasPrice:'25000000000'
-        },
-        baobab: {
-            provider: () => { return new HDWalletProvider(privateKey, "http://your.baobab.en:8551") },
-            network_id: '1001', //Klaytn baobab testnet's network id
-            gas: '8500000',
-            gasPrice: null
-        },
-          cypress: {
-            provider: () => { return new HDWalletProvider(privateKey, "http://your.cypress.en:8551") },
-            network_id: '8217', //Klaytn mainnet's network id
-            gas: '8500000',
-            gasPrice: null
-        },
-    },
+module.exports = {
+  /**
+   * Networks define how you connect to your ethereum client and let you set the
+   * defaults web3 uses to send transactions. If you don't specify one truffle
+   * will spin up a development blockchain for you on port 9545 when you
+   * run `develop` or `test`. You can ask a truffle command to use a specific
+   * network from the command line, e.g
+   *
+   * $ truffle test --network <network-name>
+   */
 
-    // Set default mocha options here, use special reporters etc.
-    mocha: {
-    // timeout: 100000
+  networks: {
+    // Useful for testing. The `development` name is special - truffle uses it by default
+    // if it's defined here and no other network is specified at the command line.
+    // You should run a client (like ganache-cli, geth or parity) in a separate terminal
+    // tab if you use this network and you must also set the `host`, `port` and `network_id`
+    // options below to some value.
+    //
+    // for ganache
+    development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+      gas: 80000000
     },
-    
-    contracts_directory: './src/contracts',
-    contracts_build_directory: './src/truffle_abis',
-    compilers:
-    {
-        solc:
-        {
-            version: '^0.5.0',
-            optimizer:
-            {
-                enabled: true,
-                runs: 200
-            },
-        },
+    klaytn: {
+      provider: () => {
+        const pks = JSON.parse(fs.readFileSync(path.resolve(__dirname)+'/privateKeys.js'))
+
+        return new HDWalletProvider(pks, "http://localhost:8551", 0, pks.length)
+      },
+      network_id: '203', //Klaytn baobab testnet's network id
+      gas: '8500000',
+      gasPrice: null
+    },
+    kasBaobab: {
+      provider: () => {
+        const option = {
+          headers: [
+            { name: 'Authorization', value: 'Basic ' + Buffer.from(accessKeyId + ':' + secretAccessKey).toString('base64') },
+            { name: 'x-chain-id', value: '1001' }
+          ],
+          keepAlive: false,
+        }
+        return new HDWalletProvider(privateKey, new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn", option))
+      },
+      network_id: '1001', //Klaytn baobab testnet's network id
+      gas: '8500000',
+      gasPrice:'25000000000'
+    },
+    kasCypress: {
+      provider: () => {
+        const option = {
+          headers: [
+            { name: 'Authorization', value: 'Basic ' + Buffer.from(accessKeyId + ':' + secretAccessKey).toString('base64') },
+            { name: 'x-chain-id', value: '8217' }
+          ],
+          keepAlive: false,
+        }
+        return new HDWalletProvider(cypressPrivateKey, new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn", option))
+      },
+      network_id: '8217', //Klaytn baobab testnet's network id
+      gas: '8500000',
+      gasPrice:'25000000000'
+    },
+    baobab: {
+      provider: () => { return new HDWalletProvider(privateKey, "http://your.baobab.en:8551") },
+      network_id: '1001', //Klaytn baobab testnet's network id
+      gas: '8500000',
+      gasPrice: null
+    },
+    cypress: {
+      provider: () => { return new HDWalletProvider(privateKey, "http://your.cypress.en:8551") },
+      network_id: '8217', //Klaytn mainnet's network id
+      gas: '8500000',
+      gasPrice: null
     }
-}
-    // : development
+    
+    // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
     //  port: 8545,            // Standard Ethereum port (default: none)
     //  network_id: "*",       // Any network (default: none)
-    //
+    // },
 
     // Another network with more advanced options...
     // advanced: {
@@ -148,7 +126,7 @@ module.exports =
       // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
       // from: <address>,        // Account to send txs from (default: accounts[0])
       // websockets: true        // Enable EventEmitter interface for web3 (default: false)
-    //
+    // },
 
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
@@ -159,7 +137,7 @@ module.exports =
       // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    //
+    // },
 
     // Useful for private networks
     // private: {
@@ -167,3 +145,29 @@ module.exports =
       // network_id: 2111,   // This network is yours, in the cloud.
       // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+  },
+
+  // Set default mocha options here, use special reporters etc.
+  mocha: {
+    // timeout: 100000
+  },
+  
+  // Contracts Directory
+  contracts_directory: './src/contracts',
+  contracts_build_directory: './src/truffle_abis',
+
+  // Configure your compilers
+  compilers: {
+    solc: {
+      version: "0.5.6",    // Fetch exact version from solc-bin (default: truffle's version)
+      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+      settings: {          // See the solidity docs for advice about optimization and evmVersion
+        optimizer: {
+          enabled: true,
+          runs: 200
+        },
+        evmVersion: "constantinople"
+      }
+    }
+  }
+}

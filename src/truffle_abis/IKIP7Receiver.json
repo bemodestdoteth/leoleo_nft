@@ -1,27 +1,27 @@
 {
-  "contractName": "IERC721Receiver",
+  "contractName": "IKIP7Receiver",
   "abi": [
     {
       "constant": false,
       "inputs": [
         {
-          "name": "operator",
+          "name": "_operator",
           "type": "address"
         },
         {
-          "name": "from",
+          "name": "_from",
           "type": "address"
         },
         {
-          "name": "tokenId",
+          "name": "_amount",
           "type": "uint256"
         },
         {
-          "name": "data",
+          "name": "_data",
           "type": "bytes"
         }
       ],
-      "name": "onERC721Received",
+      "name": "onKIP7Received",
       "outputs": [
         {
           "name": "",
@@ -33,25 +33,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.6+commit.b259423e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"operator\",\"type\":\"address\"},{\"name\":\"from\",\"type\":\"address\"},{\"name\":\"tokenId\",\"type\":\"uint256\"},{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes4\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for any contract that wants to support safeTransfers from ERC721 asset contracts.\",\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"details\":\"The ERC721 smart contract calls this function on the recipient after a `safeTransfer`. This function MUST return the function selector, otherwise the caller will revert the transaction. The selector to be returned can be obtained as `this.onERC721Received.selector`. This function MAY throw to revert and reject the transfer. Note: the ERC721 contract address is always the message sender.\",\"params\":{\"data\":\"Additional data with no specified format\",\"from\":\"The address which previously owned the token\",\"operator\":\"The address which called `safeTransferFrom` function\",\"tokenId\":\"The NFT identifier which is being transferred\"},\"return\":\"bytes4 `bytes4(keccak256(\\\"onERC721Received(address,address,uint256,bytes)\\\"))`\"}},\"title\":\"ERC721 token receiver interface\"},\"userdoc\":{\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"notice\":\"Handle the receipt of an NFT\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP17/IERC721Receiver.sol\":\"IERC721Receiver\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP17/IERC721Receiver.sol\":{\"keccak256\":\"0xadbfb7028fb0f851dc848a48b9e54e7c89ffd2c2edc12fa4ba9bb383dfaa83d9\",\"urls\":[\"bzzr://2466b6491600969dd9ffdeb0b705e7cecc38418aa215cec64b2481273bba9076\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.6+commit.b259423e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_operator\",\"type\":\"address\"},{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_amount\",\"type\":\"uint256\"},{\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"onKIP7Received\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes4\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Note: the KIP-13 identifier for this interface is 0x9d188c22. see http://kips.klaytn.com/KIPs/kip-7-fungible_token\",\"methods\":{\"onKIP7Received(address,address,uint256,bytes)\":{\"details\":\"The KIP-7 smart contract calls this function on the recipient after a `safeTransfer`. This function MAY throw to revert and reject the transfer. Return of other than the magic value MUST result in the transaction being reverted. Note: the contract address is always the message sender.\",\"params\":{\"_amount\":\"The token amount which is being transferred.\",\"_data\":\"Additional data with no specified format\",\"_from\":\"The address which previously owned the token\",\"_operator\":\"The address which called `safeTransferFrom` function\"},\"return\":\"`bytes4(keccak256(\\\"onKIP7Received(address,address,uint256,bytes)\\\"))` unless throwing\"}},\"title\":\"KIP-7 Fungible Token Standard, optional wallet interface\"},\"userdoc\":{\"methods\":{\"onKIP7Received(address,address,uint256,bytes)\":{\"notice\":\"Handle the receipt of KIP-7 token\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP7/IKIP7Receiver.sol\":\"IKIP7Receiver\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP7/IKIP7Receiver.sol\":{\"keccak256\":\"0xbe8276c8cc253992fc6789d62fb7946b859893948167dd1e326da6ece3202574\",\"urls\":[\"bzzr://e260d02b9f03bb324802362279f4af290df1a6b84482189d09a598e702929b76\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.5.0;\n\n/**\n * @title ERC721 token receiver interface\n * @dev Interface for any contract that wants to support safeTransfers\n * from ERC721 asset contracts.\n */\ncontract IERC721Receiver {\n    /**\n     * @notice Handle the receipt of an NFT\n     * @dev The ERC721 smart contract calls this function on the recipient\n     * after a `safeTransfer`. This function MUST return the function selector,\n     * otherwise the caller will revert the transaction. The selector to be\n     * returned can be obtained as `this.onERC721Received.selector`. This\n     * function MAY throw to revert and reject the transfer.\n     * Note: the ERC721 contract address is always the message sender.\n     * @param operator The address which called `safeTransferFrom` function\n     * @param from The address which previously owned the token\n     * @param tokenId The NFT identifier which is being transferred\n     * @param data Additional data with no specified format\n     * @return bytes4 `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`\n     */\n    function onERC721Received(address operator, address from, uint256 tokenId, bytes memory data)\n    public returns (bytes4);\n}\n",
-  "sourcePath": "C:\\Users\\runde\\Documents\\Mint_Leo\\src\\contracts\\klaytn-contracts\\token\\KIP17\\IERC721Receiver.sol",
+  "source": "pragma solidity ^0.5.0;\n\n/**\n * @title KIP-7 Fungible Token Standard, optional wallet interface\n * @dev Note: the KIP-13 identifier for this interface is 0x9d188c22.\n * see http://kips.klaytn.com/KIPs/kip-7-fungible_token\n */\ncontract IKIP7Receiver {\n    /**\n     * @notice Handle the receipt of KIP-7 token\n     * @dev The KIP-7 smart contract calls this function on the recipient\n     *  after a `safeTransfer`. This function MAY throw to revert and reject the\n     *  transfer. Return of other than the magic value MUST result in the\n     *  transaction being reverted.\n     *  Note: the contract address is always the message sender.\n     * @param _operator The address which called `safeTransferFrom` function\n     * @param _from The address which previously owned the token\n     * @param _amount The token amount which is being transferred.\n     * @param _data Additional data with no specified format\n     * @return `bytes4(keccak256(\"onKIP7Received(address,address,uint256,bytes)\"))`\n     *  unless throwing\n     */\n    function onKIP7Received(address _operator, address _from, uint256 _amount, bytes memory _data) public returns (bytes4);\n}\n",
+  "sourcePath": "C:\\Users\\runde\\Documents\\Mint_Leo\\src\\contracts\\klaytn-contracts\\token\\KIP7\\IKIP7Receiver.sol",
   "ast": {
-    "absolutePath": "/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP17/IERC721Receiver.sol",
+    "absolutePath": "/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP7/IKIP7Receiver.sol",
     "exportedSymbols": {
-      "IERC721Receiver": [
-        2468
+      "IKIP7Receiver": [
+        6080
       ]
     },
-    "id": 2469,
+    "id": 6081,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2454,
+        "id": 6066,
         "literals": [
           "solidity",
           "^",
@@ -59,41 +59,41 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:38"
+        "src": "0:23:65"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
-        "documentation": "@title ERC721 token receiver interface\n@dev Interface for any contract that wants to support safeTransfers\nfrom ERC721 asset contracts.",
+        "documentation": "@title KIP-7 Fungible Token Standard, optional wallet interface\n@dev Note: the KIP-13 identifier for this interface is 0x9d188c22.\nsee http://kips.klaytn.com/KIPs/kip-7-fungible_token",
         "fullyImplemented": false,
-        "id": 2468,
+        "id": 6080,
         "linearizedBaseContracts": [
-          2468
+          6080
         ],
-        "name": "IERC721Receiver",
+        "name": "IKIP7Receiver",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
-            "documentation": "@notice Handle the receipt of an NFT\n@dev The ERC721 smart contract calls this function on the recipient\nafter a `safeTransfer`. This function MUST return the function selector,\notherwise the caller will revert the transaction. The selector to be\nreturned can be obtained as `this.onERC721Received.selector`. This\nfunction MAY throw to revert and reject the transfer.\nNote: the ERC721 contract address is always the message sender.\n@param operator The address which called `safeTransferFrom` function\n@param from The address which previously owned the token\n@param tokenId The NFT identifier which is being transferred\n@param data Additional data with no specified format\n@return bytes4 `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
-            "id": 2467,
+            "documentation": "@notice Handle the receipt of KIP-7 token\n@dev The KIP-7 smart contract calls this function on the recipient\n after a `safeTransfer`. This function MAY throw to revert and reject the\n transfer. Return of other than the magic value MUST result in the\n transaction being reverted.\n Note: the contract address is always the message sender.\n@param _operator The address which called `safeTransferFrom` function\n@param _from The address which previously owned the token\n@param _amount The token amount which is being transferred.\n@param _data Additional data with no specified format\n@return `bytes4(keccak256(\"onKIP7Received(address,address,uint256,bytes)\"))`\n unless throwing",
+            "id": 6079,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "onERC721Received",
+            "name": "onKIP7Received",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2463,
+              "id": 6075,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2456,
-                  "name": "operator",
+                  "id": 6068,
+                  "name": "_operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2467,
-                  "src": "1093:16:38",
+                  "scope": 6079,
+                  "src": "1052:17:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -101,10 +101,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2455,
+                    "id": 6067,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1093:7:38",
+                    "src": "1052:7:65",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -116,11 +116,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2458,
-                  "name": "from",
+                  "id": 6070,
+                  "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2467,
-                  "src": "1111:12:38",
+                  "scope": 6079,
+                  "src": "1071:13:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -128,10 +128,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2457,
+                    "id": 6069,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1111:7:38",
+                    "src": "1071:7:65",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -143,11 +143,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2460,
-                  "name": "tokenId",
+                  "id": 6072,
+                  "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2467,
-                  "src": "1125:15:38",
+                  "scope": 6079,
+                  "src": "1086:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -155,10 +155,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2459,
+                    "id": 6071,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1125:7:38",
+                    "src": "1086:7:65",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -169,11 +169,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2462,
-                  "name": "data",
+                  "id": 6074,
+                  "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2467,
-                  "src": "1142:17:38",
+                  "scope": 6079,
+                  "src": "1103:18:65",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -181,10 +181,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2461,
+                    "id": 6073,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1142:5:38",
+                    "src": "1103:5:65",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -194,19 +194,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1092:68:38"
+              "src": "1051:71:65"
             },
             "returnParameters": {
-              "id": 2466,
+              "id": 6078,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2465,
+                  "id": 6077,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2467,
-                  "src": "1181:6:38",
+                  "scope": 6079,
+                  "src": "1139:6:65",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -214,10 +214,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 2464,
+                    "id": 6076,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1181:6:38",
+                    "src": "1139:6:65",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -227,27 +227,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1180:8:38"
+              "src": "1138:8:65"
             },
-            "scope": 2468,
-            "src": "1067:122:38",
+            "scope": 6080,
+            "src": "1028:119:65",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2469,
-        "src": "178:1013:38"
+        "scope": 6081,
+        "src": "226:923:65"
       }
     ],
-    "src": "0:1192:38"
+    "src": "0:1150:65"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP17/IERC721Receiver.sol",
+      "absolutePath": "/C/Users/runde/Documents/Mint_Leo/src/contracts/klaytn-contracts/token/KIP7/IKIP7Receiver.sol",
       "exportedSymbols": {
-        "IERC721Receiver": [
-          2468
+        "IKIP7Receiver": [
+          6080
         ]
       }
     },
@@ -261,9 +261,9 @@
             ".0"
           ]
         },
-        "id": 2454,
+        "id": 6066,
         "name": "PragmaDirective",
-        "src": "0:23:38"
+        "src": "0:23:65"
       },
       {
         "attributes": {
@@ -274,27 +274,27 @@
             null
           ],
           "contractKind": "contract",
-          "documentation": "@title ERC721 token receiver interface\n@dev Interface for any contract that wants to support safeTransfers\nfrom ERC721 asset contracts.",
+          "documentation": "@title KIP-7 Fungible Token Standard, optional wallet interface\n@dev Note: the KIP-13 identifier for this interface is 0x9d188c22.\nsee http://kips.klaytn.com/KIPs/kip-7-fungible_token",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2468
+            6080
           ],
-          "name": "IERC721Receiver",
-          "scope": 2469
+          "name": "IKIP7Receiver",
+          "scope": 6081
         },
         "children": [
           {
             "attributes": {
               "body": null,
-              "documentation": "@notice Handle the receipt of an NFT\n@dev The ERC721 smart contract calls this function on the recipient\nafter a `safeTransfer`. This function MUST return the function selector,\notherwise the caller will revert the transaction. The selector to be\nreturned can be obtained as `this.onERC721Received.selector`. This\nfunction MAY throw to revert and reject the transfer.\nNote: the ERC721 contract address is always the message sender.\n@param operator The address which called `safeTransferFrom` function\n@param from The address which previously owned the token\n@param tokenId The NFT identifier which is being transferred\n@param data Additional data with no specified format\n@return bytes4 `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
+              "documentation": "@notice Handle the receipt of KIP-7 token\n@dev The KIP-7 smart contract calls this function on the recipient\n after a `safeTransfer`. This function MAY throw to revert and reject the\n transfer. Return of other than the magic value MUST result in the\n transaction being reverted.\n Note: the contract address is always the message sender.\n@param _operator The address which called `safeTransferFrom` function\n@param _from The address which previously owned the token\n@param _amount The token amount which is being transferred.\n@param _data Additional data with no specified format\n@return `bytes4(keccak256(\"onKIP7Received(address,address,uint256,bytes)\"))`\n unless throwing",
               "implemented": false,
               "isConstructor": false,
               "kind": "function",
               "modifiers": [
                 null
               ],
-              "name": "onERC721Received",
-              "scope": 2468,
+              "name": "onKIP7Received",
+              "scope": 6080,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -305,8 +305,8 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "operator",
-                      "scope": 2467,
+                      "name": "_operator",
+                      "scope": 6079,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -320,20 +320,20 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 2455,
+                        "id": 6067,
                         "name": "ElementaryTypeName",
-                        "src": "1093:7:38"
+                        "src": "1052:7:65"
                       }
                     ],
-                    "id": 2456,
+                    "id": 6068,
                     "name": "VariableDeclaration",
-                    "src": "1093:16:38"
+                    "src": "1052:17:65"
                   },
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "from",
-                      "scope": 2467,
+                      "name": "_from",
+                      "scope": 6079,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -347,20 +347,20 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 2457,
+                        "id": 6069,
                         "name": "ElementaryTypeName",
-                        "src": "1111:7:38"
+                        "src": "1071:7:65"
                       }
                     ],
-                    "id": 2458,
+                    "id": 6070,
                     "name": "VariableDeclaration",
-                    "src": "1111:12:38"
+                    "src": "1071:13:65"
                   },
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "tokenId",
-                      "scope": 2467,
+                      "name": "_amount",
+                      "scope": 6079,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -373,20 +373,20 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 2459,
+                        "id": 6071,
                         "name": "ElementaryTypeName",
-                        "src": "1125:7:38"
+                        "src": "1086:7:65"
                       }
                     ],
-                    "id": 2460,
+                    "id": 6072,
                     "name": "VariableDeclaration",
-                    "src": "1125:15:38"
+                    "src": "1086:15:65"
                   },
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "data",
-                      "scope": 2467,
+                      "name": "_data",
+                      "scope": 6079,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "bytes",
@@ -399,19 +399,19 @@
                           "name": "bytes",
                           "type": "bytes"
                         },
-                        "id": 2461,
+                        "id": 6073,
                         "name": "ElementaryTypeName",
-                        "src": "1142:5:38"
+                        "src": "1103:5:65"
                       }
                     ],
-                    "id": 2462,
+                    "id": 6074,
                     "name": "VariableDeclaration",
-                    "src": "1142:17:38"
+                    "src": "1103:18:65"
                   }
                 ],
-                "id": 2463,
+                "id": 6075,
                 "name": "ParameterList",
-                "src": "1092:68:38"
+                "src": "1051:71:65"
               },
               {
                 "children": [
@@ -419,7 +419,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 2467,
+                      "scope": 6079,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes4",
@@ -432,34 +432,34 @@
                           "name": "bytes4",
                           "type": "bytes4"
                         },
-                        "id": 2464,
+                        "id": 6076,
                         "name": "ElementaryTypeName",
-                        "src": "1181:6:38"
+                        "src": "1139:6:65"
                       }
                     ],
-                    "id": 2465,
+                    "id": 6077,
                     "name": "VariableDeclaration",
-                    "src": "1181:6:38"
+                    "src": "1139:6:65"
                   }
                 ],
-                "id": 2466,
+                "id": 6078,
                 "name": "ParameterList",
-                "src": "1180:8:38"
+                "src": "1138:8:65"
               }
             ],
-            "id": 2467,
+            "id": 6079,
             "name": "FunctionDefinition",
-            "src": "1067:122:38"
+            "src": "1028:119:65"
           }
         ],
-        "id": 2468,
+        "id": 6080,
         "name": "ContractDefinition",
-        "src": "178:1013:38"
+        "src": "226:923:65"
       }
     ],
-    "id": 2469,
+    "id": 6081,
     "name": "SourceUnit",
-    "src": "0:1192:38"
+    "src": "0:1150:65"
   },
   "compiler": {
     "name": "solc",
@@ -467,27 +467,27 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.052Z",
+  "updatedAt": "2022-02-24T11:14:36.138Z",
   "devdoc": {
-    "details": "Interface for any contract that wants to support safeTransfers from ERC721 asset contracts.",
+    "details": "Note: the KIP-13 identifier for this interface is 0x9d188c22. see http://kips.klaytn.com/KIPs/kip-7-fungible_token",
     "methods": {
-      "onERC721Received(address,address,uint256,bytes)": {
-        "details": "The ERC721 smart contract calls this function on the recipient after a `safeTransfer`. This function MUST return the function selector, otherwise the caller will revert the transaction. The selector to be returned can be obtained as `this.onERC721Received.selector`. This function MAY throw to revert and reject the transfer. Note: the ERC721 contract address is always the message sender.",
+      "onKIP7Received(address,address,uint256,bytes)": {
+        "details": "The KIP-7 smart contract calls this function on the recipient after a `safeTransfer`. This function MAY throw to revert and reject the transfer. Return of other than the magic value MUST result in the transaction being reverted. Note: the contract address is always the message sender.",
         "params": {
-          "data": "Additional data with no specified format",
-          "from": "The address which previously owned the token",
-          "operator": "The address which called `safeTransferFrom` function",
-          "tokenId": "The NFT identifier which is being transferred"
+          "_amount": "The token amount which is being transferred.",
+          "_data": "Additional data with no specified format",
+          "_from": "The address which previously owned the token",
+          "_operator": "The address which called `safeTransferFrom` function"
         },
-        "return": "bytes4 `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`"
+        "return": "`bytes4(keccak256(\"onKIP7Received(address,address,uint256,bytes)\"))` unless throwing"
       }
     },
-    "title": "ERC721 token receiver interface"
+    "title": "KIP-7 Fungible Token Standard, optional wallet interface"
   },
   "userdoc": {
     "methods": {
-      "onERC721Received(address,address,uint256,bytes)": {
-        "notice": "Handle the receipt of an NFT"
+      "onKIP7Received(address,address,uint256,bytes)": {
+        "notice": "Handle the receipt of KIP-7 token"
       }
     }
   }
