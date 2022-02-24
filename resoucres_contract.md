@@ -79,6 +79,12 @@ https://www.daleseo.com/js-module-require/
 https://ethereum.stackexchange.com/questions/84388/solidity-0-6-0-truffle-compile-error-cannot-read-property-of-undefined
 트러플 컴파일 에러 솔리디티 버전 낮추면 해결됨.
 
+https://www.freecodecamp.org/news/whats-boilerplate-and-why-do-we-use-it-let-s-check-out-the-coding-style-guide-ac2b6c814ee7/
+Boilerplate code: unit of writing that can be reused over and over without change. Reusable.
+
+https://github.com/GaeJabBu/klaytn-0.5.6-Boilerplate
+클레이튼 0.5.6 보일러플레이트
+
 https://www.youtube.com/watch?v=lL0NR4kJKcg
 리빌 방식으로 컨트랙 제작
 
