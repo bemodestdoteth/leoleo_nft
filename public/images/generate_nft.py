@@ -136,8 +136,8 @@ for item in all_images:
     rgb_im.save('./leoleo/' + file_name)
 
 # Dump metadata
-metadata_file = './metadata/leo_metadata.json'
-with open(metadata_file, 'w') as file:
+local_metadata = "./metadata/"
+with open(local_metadata + "leoleo_metadata.json", 'w') as file:
     json.dump(all_images, file, indent = 4)
 
 # Generate metadata for each image
@@ -147,19 +147,19 @@ def getAttribute(key, value):
         "value": value
     }
 
-f = open(metadata_file) 
+f = open(local_metadata + "leoleo_metadata.json") 
 data = json.load(f)
 
-metadata_url = "https://leometadata.s3.ap-northeast-2.amazonaws.com/images/metadata/"
-peoject_name = "LeoLeo"
+CID = "QmSgY4HwRPySAcofZ8ssPtbYR9UYvGSM8t9rkosPuej93X"
+metadata_URI = "https://ipfs.io/ipfs/" + CID + "/"
 
 for i in data:
     token_id = i['tokenID']
     token = {
-        "name": peoject_name + str(token_id),
+        "name": "LeoLeo" + str(token_id),
         "description": "LeoLeo nft in KyungHee University.",
         "tokenId": token_id,
-        "image": metadata_url + str(token_id) + '.png',
+        "image": metadata_URI + str(token_id) + '.png',
         "attributes": []
     }
     token["attributes"].append(getAttribute("Background", i["Background"]))
@@ -172,6 +172,6 @@ for i in data:
     token["attributes"].append(getAttribute("Hair", i["Hair"]))
     token["attributes"].append(getAttribute("Accessories", i["Accessories"]))
 
-    with open(metadata_url + str(token_id) + ".json", 'w') as outfile:
+    with open(local_metadata + str(token_id) + ".json", 'w') as outfile:
         json.dump(token, outfile, indent=4)
 f.close()

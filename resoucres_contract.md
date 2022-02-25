@@ -37,6 +37,9 @@ https://www.freecodecamp.org/news/how-to-make-an-nft-and-render-on-opensea-marke
 t.ly/b954
 IPFS and pinata tutorial
 
+t.ly/3KtC
+민팅 컨트랙 예제 5
+
 https://github.com/syl-codes/kongz-contract-v1
 메타콩즈 컨트랙?
 
