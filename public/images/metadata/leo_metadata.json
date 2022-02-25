@@ -2,12 +2,61 @@
     {
         "Background": "1",
         "Body": "1",
-        "Outfit": "1",
-        "Hair": "1",
+        "Outfit": "2",
         "Face": "1",
+        "Eye": "1",
+        "Nose": "2",
+        "Eyebrow": "2",
+        "Hair": "2",
+        "Accessories": "1",
+        "tokenID": 1
+    },
+    {
+        "Background": "2",
+        "Body": "1",
+        "Outfit": "1",
+        "Face": "1",
+        "Eye": "1",
+        "Nose": "2",
+        "Eyebrow": "2",
+        "Hair": "1",
+        "Accessories": "1",
+        "tokenID": 2
+    },
+    {
+        "Background": "1",
+        "Body": "1",
+        "Outfit": "2",
+        "Face": "1",
+        "Eye": "1",
         "Nose": "1",
         "Eyebrow": "1",
+        "Hair": "2",
+        "Accessories": "1",
+        "tokenID": 3
+    },
+    {
+        "Background": "1",
+        "Body": "1",
+        "Outfit": "1",
+        "Face": "1",
+        "Eye": "2",
+        "Nose": "1",
+        "Eyebrow": "2",
+        "Hair": "2",
+        "Accessories": "1",
+        "tokenID": 4
+    },
+    {
+        "Background": "1",
+        "Body": "1",
+        "Outfit": "1",
+        "Face": "1",
         "Eye": "1",
-        "tokenID": 1
+        "Nose": "1",
+        "Eyebrow": "1",
+        "Hair": "1",
+        "Accessories": "1",
+        "tokenID": 5
     }
 ]

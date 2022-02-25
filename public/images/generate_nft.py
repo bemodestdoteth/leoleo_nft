@@ -1,8 +1,7 @@
-import cv2
-import numpy as np
 from PIL import Image
-import random
+import json
 import os
+import random
 
 '''
 ※ 참고
@@ -43,22 +42,24 @@ def generate_image():
         new_image['Background'] = random.choice(background)
         new_image['Body'] = random.choice(body)
         new_image['Outfit'] = random.choice(outfit)
-        new_image['Hair'] = random.choice(hair)
         new_image['Face'] = random.choice(face)
+        new_image['Eye'] = random.choice(eye)
         new_image['Nose'] = random.choice(nose)
         new_image['Eyebrow'] = random.choice(eyebrow)
-        new_image['Eye'] = random.choice(eye)
+        new_image['Hair'] = random.choice(hair)
+        new_image['Accessories'] = random.choice(accessories)
 
         if new_image not in all_images:
             print(new_image)
             background.remove(new_image['Background'])
             body.remove(new_image['Body'])
             outfit.remove(new_image['Outfit'])
-            hair.remove(new_image['Hair'])
             face.remove(new_image['Face'])
+            eye.remove(new_image['Eye'])
             nose.remove(new_image['Nose'])
             eyebrow.remove(new_image['Eyebrow'])
-            eye.remove(new_image['Eye'])
+            hair.remove(new_image['Hair'])
+            accessories.remove(new_image['Accessories'])
             all_images.append(new_image)
         
         if len(all_images) == total_images:
@@ -70,26 +71,28 @@ def validate_uniqueness(all_images):
     return not any(i in seen or seen.append(i) for i in all_images)
 
 # Classify traits
-background_files = {'1': 'background1'}
+background_files = {'1': 'background1', '2': 'background2'}
 body_files = {'1': 'body1'}
-outfit_files = {'1': 'outfit1'}
-hair_files = {'1': 'hair1'}
+outfit_files = {'1': 'outfit1', '2': 'outfit2'}
 face_files = {'1': 'face1'}
-nose_files = {'1': 'nose1'}
-eyebrow_files = {'1': 'eyebrow1'}
-eye_files = {'1': 'eye1'}
+eye_files = {'1': 'eye1', '2': 'eye2'}
+nose_files = {'1': 'nose1', '2': 'nose2'}
+eyebrow_files = {'1': 'eyebrow1', '2': 'eyebrow2'}
+hair_files = {'1': 'hair1', '2': 'hair2'}
+accessories_files = {'1': 'accessories1'}
 
 # Total images and list for all images
-total_images = 1 # 123
+total_images = 5 # 123
 all_images = []
-background = generate_traits([1])
-body = generate_traits([1])
-outfit = generate_traits([1])
-hair = generate_traits([1])
-face = generate_traits([1])
-nose = generate_traits([1])
-eyebrow = generate_traits([1])
-eye = generate_traits([1])
+background = generate_traits([5, 5])
+body = generate_traits([123])
+outfit = generate_traits([5, 5])
+face = generate_traits([123])
+eye = generate_traits([5, 5])
+nose = generate_traits([5, 5])
+eyebrow = generate_traits([5, 5])
+hair = generate_traits([5, 5])
+accessories = generate_traits([123])
 
 # Generate unique combinations on trait weighings
 generate_image()
@@ -107,70 +110,28 @@ for i in range(len(all_images)):
 # Generate images
 os.chdir('./public/images')
 
-'''
-def composite(fore, back):
-    # kernel = np.ones((1, 1), np.uint8)
-    kernel = np.ndarray((0), np.uint8)
-    fore = cv2.cvtColor(fore, cv2.COLOR_RGB2BGR)
-    back = cv2.cvtColor(back, cv2.COLOR_RGB2BGR)
-
-    fore_gray = cv2.cvtColor(fore, cv2.COLOR_BGR2GRAY)
-
-    ret, mask = cv2.threshold(fore_gray, 200, 255, cv2.THRESH_BINARY)
-
-    opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
-
-    output = np.zeros(fore.shape, dtype=fore.dtype)
-
-    for i in range(3):
-        output[:, :, i] = back[:, :, i] *(opening/255) + fore[:, :, i] *(1-opening/255)
-
-    output = cv2.cvtColor(output, cv2.COLOR_BGR2RGBA)
-    cv2.waitKey(0)
-    return output
-
-for item in all_images:
-    im1 = cv2.imread("./parts/background/{}.jpg".format(background_files[item["Background"]]))
-    im2 = cv2.imread("./parts/body/{}.jpg".format(body_files[item["Body"]]))
-    im3 = cv2.imread("./parts/outfit/{}.jpg".format(outfit_files[item["Outfit"]]))
-    im4 = cv2.imread("./parts/hair/{}.jpg".format(hair_files[item["Hair"]]))
-    im5 = cv2.imread("./parts/face/{}.jpg".format(face_files[item["Face"]]))
-    im6 = cv2.imread("./parts/nose/{}.jpg".format(nose_files[item["Nose"]]))
-    im7 = cv2.imread("./parts/eyebrow/{}.jpg".format(eyebrow_files[item["Eyebrow"]]))
-    im8 = cv2.imread("./parts/eye/{}.jpg".format(eye_files[item["Eye"]]))
-
-    # Create each composite
-    com1 = composite(im2, im1)
-    com2 = composite(im3, com1)
-    com3 = composite(im5, com2)
-    com4 = composite(im8, com3)
-    com5 = composite(im6, com4)
-    com6 = composite(im7, com5)
-    com7 = composite(im4, com6)
-
-    file_name = str(item["tokenID"]) + ".jpg"
-    cv2.imwrite('./leoleo/' + file_name, com7)
-'''
 for item in all_images:
     im1 = Image.open("./parts/background/{}.png".format(background_files[item["Background"]])).convert('RGBA')
     im2 = Image.open("./parts/body/{}.png".format(body_files[item["Body"]])).convert('RGBA')
-    im3 = Image.open("./parts/outfit/{}.jpg".format(outfit_files[item["Outfit"]])).convert('RGBA')
-    im4 = Image.open("./parts/hair/{}.jpg".format(hair_files[item["Hair"]])).convert('RGBA')
-    im5 = Image.open("./parts/face/{}.jpg".format(face_files[item["Face"]])).convert('RGBA')
-    im6 = Image.open("./parts/nose/{}.jpg".format(nose_files[item["Nose"]])).convert('RGBA')
-    im7 = Image.open("./parts/eyebrow/{}.jpg".format(eyebrow_files[item["Eyebrow"]])).convert('RGBA')
-    im8 = Image.open("./parts/eye/{}.jpg".format(eye_files[item["Eye"]])).convert('RGBA')
+    im3 = Image.open("./parts/outfit/{}.png".format(outfit_files[item["Outfit"]])).convert('RGBA')
+    im4 = Image.open("./parts/face/{}.png".format(face_files[item["Face"]])).convert('RGBA')
+    im5 = Image.open("./parts/eye/{}.png".format(eye_files[item["Eye"]])).convert('RGBA')
+    im6 = Image.open("./parts/nose/{}.png".format(nose_files[item["Nose"]])).convert('RGBA')
+    im7 = Image.open("./parts/eyebrow/{}.png".format(eyebrow_files[item["Eyebrow"]])).convert('RGBA')
+    im8 = Image.open("./parts/hair/{}.png".format(hair_files[item["Hair"]])).convert('RGBA')
+    im9 = Image.open("./parts/accessories/{}.png".format(accessories_files[item["Accessories"]])).convert('RGBA')
 
     # Create each composite
     com1 = Image.alpha_composite(im1, im2)
     com2 = Image.alpha_composite(com1, im3)
-    com3 = Image.alpha_composite(com2, im5)
-    com4 = Image.alpha_composite(com3, im8)
+    com3 = Image.alpha_composite(com2, im4)
+    com4 = Image.alpha_composite(com3, im5)
     com5 = Image.alpha_composite(com4, im6)
     com6 = Image.alpha_composite(com5, im7)
-    com7 = Image.alpha_composite(com6, im4)
+    com7 = Image.alpha_composite(com6, im8)
+    com8 = Image.alpha_composite(com7, im9)
 
-    rgb_im = com1.convert('RGB')
+    rgb_im = com8.convert('RGB')
     file_name = str(item["tokenID"]) + ".png"
     rgb_im.save('./leoleo/' + file_name)
 
@@ -204,11 +165,12 @@ for i in data:
     token["attributes"].append(getAttribute("Background", i["Background"]))
     token["attributes"].append(getAttribute("Body", i["Body"]))
     token["attributes"].append(getAttribute("Outfit", i["Outfit"]))
-    token["attributes"].append(getAttribute("Hair", i["Hair"]))
     token["attributes"].append(getAttribute("Face", i["Face"]))
+    token["attributes"].append(getAttribute("Eye", i["Eye"]))
     token["attributes"].append(getAttribute("Nose", i["Nose"]))
     token["attributes"].append(getAttribute("Eyebrow", i["Eyebrow"]))
-    token["attributes"].append(getAttribute("Eye", i["Eye"]))
+    token["attributes"].append(getAttribute("Hair", i["Hair"]))
+    token["attributes"].append(getAttribute("Accessories", i["Accessories"]))
 
     with open(metadata_url + str(token_id) + ".json", 'w') as outfile:
         json.dump(token, outfile, indent=4)
