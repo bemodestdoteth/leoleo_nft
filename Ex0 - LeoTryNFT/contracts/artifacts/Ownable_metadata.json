@@ -1,0 +1,43 @@
+{
+	"compiler": {
+		"version": "0.5.0+commit.1d4f565a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Game.sol": "Ownable"
+		},
+		"evmVersion": "constantinople",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Game.sol": {
+			"keccak256": "0x0a23d81fec2818969500a7a4cf969d9d14084fc5fb7750fda0799af4d89d36da",
+			"urls": [
+				"bzzr://233527d0e6f8e917bfaabb2b88a60c42f5108abc73a8f17e69bef1874ecd5809"
+			]
+		}
+	},
+	"version": 1
+}
