@@ -1,3 +1,4 @@
+public/images
 node_modules
 private-keys.js
 package-lock.json

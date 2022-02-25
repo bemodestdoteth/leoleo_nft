@@ -34,8 +34,8 @@ https://github.com/The-Stripes-NFT/the-stripes-nft-contract
 https://www.freecodecamp.org/news/how-to-make-an-nft-and-render-on-opensea-marketplace/
 민팅 컨트랙 예제 4
 
-https://github.com/boyd-dev/alice-NFT
-JS로 TokenURI 솔리디티로 옮기기
+t.ly/b954
+IPFS and pinata tutorial
 
 https://github.com/syl-codes/kongz-contract-v1
 메타콩즈 컨트랙?
@@ -129,3 +129,6 @@ https://docs.openzeppelin.com/contracts/3.x/api/token/erc721
 IERC721: Required interface of an ERC721 compliant contract.
 
 The EIP consists of three interfaces, found here as IERC721, IERC721Metadata, and IERC721Enumerable. Only the first one is required in a contract to be ERC721 compliant. However, all three are implemented in ERC721
+
+https://stackoverflow.com/questions/41299150/image-alpha-composite-with-opencv
+cv2 image composite
