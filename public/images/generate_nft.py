@@ -9,6 +9,7 @@ Generative Art를 어떤 식으로 만드냐에 따라 함수를 다르게 적�
 지금 이 방식은 trait마다 할당된 수치가 없이 weight만으로 generative art를 만든다. 그런데 우리 sample의 경우에는 sample size(image size)가 매우 작기 때문에 이렇게 만들면 rare trait이 나오지 않을 가능성도 존재한다. 이 경우를 막기 위해서 trait의 full list를 만들고 거기서 뽑아서 만드는 것이 괜찮아 보인다. 메모리는 많이 먹겠지만, 최선의 방법 같아 보인다.
 
 # Images and its traits, weights must add up to 100%.
+# 원래 함수, 60%과 40% 가중치로 nft를 generate한다.
 face = ['White', 'Black']
 face_weights = [60, 40]
 '''
@@ -82,6 +83,7 @@ hair_files = {'1': 'hair1', '2': 'hair2'}
 accessories_files = {'1': 'accessories1'}
 
 # Total images and list for all images
+# 수정한 부분, list 숫자의 합계만큼 그림이 할당된다.
 total_images = 5 # 123
 all_images = []
 background = generate_traits([5, 5])

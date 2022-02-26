@@ -1378,7 +1378,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.074Z",
+  "updatedAt": "2022-02-25T08:53:57.237Z",
   "devdoc": {
     "details": "KIP17 Token that can be irreversibly burned (destroyed). See http://kips.klaytn.com/KIPs/kip-17-non_fungible_token",
     "methods": {

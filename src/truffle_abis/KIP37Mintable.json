@@ -7719,7 +7719,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.116Z",
+  "updatedAt": "2022-02-25T08:53:57.284Z",
   "devdoc": {
     "details": "Extension of {KIP37} that allows token holders to destroy both their own tokens and those that they have been approved to use.",
     "methods": {

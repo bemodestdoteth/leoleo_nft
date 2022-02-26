@@ -1453,7 +1453,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.159Z",
+  "updatedAt": "2022-02-25T08:53:57.308Z",
   "devdoc": {
     "details": "Extension of `KIP7` that adds a set of accounts with the `MinterRole`, which have permission to mint (create) new tokens as they see fit. * At construction, the deployer of the contract is the only minter. * See http://kips.klaytn.com/KIPs/kip-7-fungible_token",
     "methods": {

@@ -2321,7 +2321,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.089Z",
+  "updatedAt": "2022-02-25T08:53:57.251Z",
   "devdoc": {
     "details": "KIP17 modified with pausable transfers.",
     "methods": {

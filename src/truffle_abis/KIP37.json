@@ -34000,7 +34000,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.104Z",
+  "updatedAt": "2022-02-25T08:53:57.270Z",
   "devdoc": {
     "details": "Implementation of the basic standard multi-token. Originally based on code by Enjin: https://github.com/enjin/erc-1155",
     "methods": {

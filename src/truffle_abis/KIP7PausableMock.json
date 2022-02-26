@@ -1042,7 +1042,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T10:47:41.321Z",
+  "updatedAt": "2022-02-25T08:53:57.214Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

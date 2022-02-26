@@ -1500,7 +1500,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.151Z",
+  "updatedAt": "2022-02-25T08:53:57.305Z",
   "devdoc": {
     "details": "Extension of `KIP7` that allows token holders to destroy both their own tokens and those that they have an allowance for, in a way that can be recognized off-chain (via event analysis). * See http://kips.klaytn.com/KIPs/kip-7-fungible_token",
     "methods": {

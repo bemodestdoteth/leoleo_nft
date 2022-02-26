@@ -6,8 +6,8 @@
   "author": "Smiling Lion Blockchain Club",
   "homepage": "https://github.com/KS-Sh1n/leoleo-nft",
   "dependencies": {
-    "caver-js": "^1.5.0",
-    "caver-js-ext-kas": "^1.0.1",
+    "caver-js": "^1.6.3",
+    "caver-js-ext-kas": "^1.9.0",
     "truffle-hdwallet-provider-klaytn": "^1.0.13-a"
   },
   "devDependencies": {

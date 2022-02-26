@@ -47,7 +47,6 @@ https://github.com/decentraland/land
 디센 랜드 컨트랙
 
 https://github.com/search?l=Solidity&p=7&q=contract&type=Repositories
-
 TokenURI
 The tokenURI on an NFT is a unique identifier of what the token "looks" like. A URI could be an API call over HTTPS, an IPFS hash, or anything else unique.
 
@@ -135,3 +134,25 @@ The EIP consists of three interfaces, found here as IERC721, IERC721Metadata, an
 
 https://stackoverflow.com/questions/41299150/image-alpha-composite-with-opencv
 cv2 image composite
+
+https://stackoverflow.com/questions/10972176/find-the-version-of-an-installed-npm-package
+npm version check
+
+https://forum.klaytn.com/t/require-caver-js-ext-kas/643
+const CaverExtKAS = require('caver-js-ext-kas');
+
+https://medium.com/onther-tech/upgradeable-smart-contract-applications-using-proxy-patterns-2053a5780287
+Proxy Contract로 컨트랙트 업데이트하기.
+
+클레이튼 하드햇은 test는 가능하지만 deploy는 포기하랜다.
+컨트랙트 배포는 플래터로 묶어서 리믹스로 던져서 날려보내기 ㅋㅋ
+로컬 테스트 = 하드햇으로 퉁침 ㅋㅋ
+
+t.ly/8PMh
+Solidity event emit
+
+https://docs.soliditylang.org/en/latest/contracts.html#receive-ether-function
+Ethereum receive ether
+
+https://www.reddit.com/r/ethdev/comments/lgr1s1/how_to_schedule_smart_contract_functions/
+About scheduled/regular contract call

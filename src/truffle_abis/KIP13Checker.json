@@ -3795,7 +3795,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.035Z",
+  "updatedAt": "2022-02-25T08:53:57.148Z",
   "devdoc": {
     "details": "Library used to query support of an interface declared via `IKIP13`. * Note that these functions return the actual result of the query: they do not `revert` if an interface is not supported. It is up to the caller to decide what to do in these cases.",
     "methods": {}

@@ -1067,7 +1067,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.098Z",
+  "updatedAt": "2022-02-25T08:53:57.263Z",
   "devdoc": {
     "methods": {
       "onKIP37BatchReceived(address,address,uint256[],uint256[],bytes)": {

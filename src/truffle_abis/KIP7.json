@@ -14081,7 +14081,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.144Z",
+  "updatedAt": "2022-02-25T08:53:57.300Z",
   "devdoc": {
     "details": "Implementation of the `IKIP7` interface. * This implementation is agnostic to the way tokens are created. This means that a supply mechanism has to be added in a derived contract using `_mint`. For a generic mechanism see `KIP7Mintable`. * We have followed general OpenZeppelin guidelines: functions revert instead of returning `false` on failure. This behavior is nonetheless conventional and does not conflict with the expectations of KIP7 applications. * Additionally, an `Approval` event is emitted on calls to `transferFrom`. This allows applications to reconstruct the allowance for all accounts just by listening to said events. Other implementations of the KIP may not emit these events, as it isn't required by the specification. * See http://kips.klaytn.com/KIPs/kip-7-fungible_token",
     "methods": {

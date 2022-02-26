@@ -4705,7 +4705,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2022-02-24T11:14:36.119Z",
+  "updatedAt": "2022-02-25T08:53:57.289Z",
   "devdoc": {
     "details": "KIP37 token with pausable token transfers, minting and burning. * Useful for scenarios such as preventing trades until the end of an evaluation period, or having an emergency switch for freezing all token transfers in the event of a large bug. * _Available since v3.1._",
     "methods": {
