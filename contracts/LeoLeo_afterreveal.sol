@@ -14,7 +14,7 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
     string private URIExtension = ".json";
     bool public paused = false;
     uint256 private deployedBlockNo;
-    uint256 public mintLimit = 123;
+    uint256 public mintLimit = 5; // 123
     uint256 public batchMintLimit = 2;
 
     constructor(string memory _baseURI, address _unrevealedContract) public 
@@ -57,8 +57,8 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
 
     function triggerMigration() public onlyOwner
     {
-        require (block.number >= deployedBlockNo + 100);
-        for (uint256 i = 1; i <= 5 /*mintLimit*/; i++)
+        require (block.number >= deployedBlockNo + 100, "BlockHeightLow: Block height hasn't been reached yet.");
+        for (uint256 i = 1; i <= mintLimit; i++)
         {
             migrate(i);
         }
@@ -71,9 +71,12 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
 
         (done, data) = unrevealedContract.call(abi.encodeWithSignature("ownerOf(uint256)", _tokenId));
         address holder = abi.decode(data, (address));
+        require(holder != address(0), "ZeroAddress: Holder address returned zero.");
 
         // Mint and burn
         done = mint(holder, _tokenId);
+        require(done);
+        
         (done, data) = unrevealedContract.call(abi.encodeWithSignature("burn(uint256)", _tokenId));
 
         emit Migrated(holder, _tokenId);

@@ -881,10 +881,10 @@
 	},
 	"sources": {
 		"src/contracts/LeoLeo_afterreveal.sol": {
-			"keccak256": "0xd422fb76c34e60e80b860db15a0a2ed5026dc2a9339d289edddc56cfe263944e",
+			"keccak256": "0x35b024e99ea0328db886a0df2af724bf6e8819d57c9cc2a7e6330b9ad1680c5b",
 			"urls": [
-				"bzz-raw://acf45ee19dbcfbd41d200b8e5aefd2b8e34e94ed38d9854671a6fc87927bb151",
-				"dweb:/ipfs/QmXPQdgLPt2LrABGFGMjYnEPq7fg6f7e8mWyFCToZCnBpN"
+				"bzz-raw://3d9028ebfa831350dff378af6ac30a3bb85a643f155cf8def8bd6d5cea46c3be",
+				"dweb:/ipfs/QmVuiwxYC2CHXcEvyQF6AP8yE3kB9Y5MSRNo8Eb5BwfXpF"
 			]
 		},
 		"src/contracts/klaytn-contracts/access/Roles.sol": {
@@ -972,10 +972,10 @@
 			]
 		},
 		"src/contracts/klaytn-contracts/token/KIP17/KIP17.sol": {
-			"keccak256": "0x3ffc95c0da23762b273dad189c551bc0591811ca96026b0da064464aa1f1ec4f",
+			"keccak256": "0x95b93edc3528abafc1103bda5c256defd11efbb18ccd06f4841076138c8c9312",
 			"urls": [
-				"bzz-raw://a0092b30745a43e2a380e104baa47e1592627397c641b70a7bcc17829d0ce598",
-				"dweb:/ipfs/Qmc5qcUgBzxzNe2jiUic3jG1YLS56XFvrwbavKEyzrDJ5h"
+				"bzz-raw://76f9d7251a141fe5e3b53f1afd3ad644914adf2968e3e2fa1a097e7b93eea466",
+				"dweb:/ipfs/QmQH644DknqofmLL6C41MSnM4VgaCMTnhXY9yrjyVSdtGo"
 			]
 		},
 		"src/contracts/klaytn-contracts/token/KIP17/KIP17Enumerable.sol": {

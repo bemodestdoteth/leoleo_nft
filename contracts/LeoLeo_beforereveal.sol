@@ -12,7 +12,7 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
     string private baseURI;
     string private URIExtension = ".json";
     bool public paused = false;
-    uint256 public mintLimit = 123;
+    uint256 public mintLimit = 5; // 123
     uint256 public batchMintLimit = 2;
 
     constructor(string memory _baseURI) public 
