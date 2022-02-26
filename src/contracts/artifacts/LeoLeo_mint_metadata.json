@@ -11,11 +11,6 @@
 						"internalType": "string",
 						"name": "_baseURI",
 						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_initNotRevealedURI",
-						"type": "string"
 					}
 				],
 				"payable": false,
@@ -70,6 +65,25 @@
 					}
 				],
 				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Minted",
 				"type": "event"
 			},
 			{
@@ -203,19 +217,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "_to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256[]",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256[]"
 					}
 				],
 				"name": "batchMint",
 				"outputs": [],
-				"payable": true,
-				"stateMutability": "payable",
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -231,26 +245,6 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "tokenId",
-						"type": "uint256[]"
-					}
-				],
-				"name": "batchTransfer",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -289,21 +283,6 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "getBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
 				"payable": false,
@@ -394,29 +373,14 @@
 						"type": "bool"
 					}
 				],
-				"payable": true,
-				"stateMutability": "payable",
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"constant": true,
 				"inputs": [],
 				"name": "mintLimit",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "mintcost",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -480,21 +444,6 @@
 				"type": "function"
 			},
 			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "bool",
-						"name": "_state",
-						"type": "bool"
-					}
-				],
-				"name": "pause",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"constant": true,
 				"inputs": [],
 				"name": "paused",
@@ -525,30 +474,6 @@
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [],
-				"name": "reveal",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "revealed",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -621,36 +546,6 @@
 					}
 				],
 				"name": "setApprovalForAll",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_uri",
-						"type": "string"
-					}
-				],
-				"name": "setBaseURI",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_uri",
-						"type": "string"
-					}
-				],
-				"name": "setNotRevealedURI",
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
@@ -835,21 +730,6 @@
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "withdraw",
-				"outputs": [],
-				"payable": true,
-				"stateMutability": "payable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -972,7 +852,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/contracts/LeoLeo_mint.sol": "LeoLeo_mint"
+			"src/contracts/LeoLeo_beforereveal.sol": "LeoLeo_mint"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -983,11 +863,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"src/contracts/LeoLeo_mint.sol": {
-			"keccak256": "0xf8fa3e889e872bdb9a6b738dcf565856bb40e1d96ea2e562663ecfc8ca180651",
+		"src/contracts/LeoLeo_beforereveal.sol": {
+			"keccak256": "0xfea87efd4c2bd76530425469183dfff3f88869612791d425e574f4c57eb3b920",
 			"urls": [
-				"bzz-raw://bd0a610da69e84ee5fe23dc6cdd66c40def7d80b8aa4fdb70cf2d0325cd4c62c",
-				"dweb:/ipfs/QmePyuj42ZkRwV5rvZdNwH99V6wuX8P9txwZ4w456BAwgY"
+				"bzz-raw://ddb6bfae482f710ab3314823fd704c6f8102dd372162191f1dfb9dd8a0cf2776",
+				"dweb:/ipfs/QmTpwTAyfj99om6LUoryBBZkdABarn1HCzj94jHcHeyLkM"
 			]
 		},
 		"src/contracts/klaytn-contracts/access/Roles.sol": {
@@ -1103,10 +983,10 @@
 			]
 		},
 		"src/contracts/klaytn-contracts/token/KIP17/KIP17Mintable.sol": {
-			"keccak256": "0x0129b9404f1edaeb9f9f6691540512a109d2447965550907ab11651f75ec7776",
+			"keccak256": "0x818e6cf7f762eac79743d620db790929e81d4d032bdc42c347669f0f6c0fd60d",
 			"urls": [
-				"bzz-raw://d8c84dcead63d71f1cb4e95e2f91173ab5011f7ff2cca2cb1292cf2e4517de1e",
-				"dweb:/ipfs/QmevymbpnHyKJvM5e81NGYuWXE2rKh16r2U878TJYegm4y"
+				"bzz-raw://ccd304bface4561f379807d083c4d5838b3caa5400a0e0399335a023a4bfc09c",
+				"dweb:/ipfs/QmWUJWvgQKPrRMF6v1M6hWHygse7Nt1nEwNBBKYvzbdqqp"
 			]
 		},
 		"src/contracts/klaytn-contracts/utils/Address.sol": {

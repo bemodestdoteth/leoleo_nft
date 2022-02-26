@@ -258,8 +258,8 @@
 						"type": "bool"
 					}
 				],
-				"payable": true,
-				"stateMutability": "payable",
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -590,10 +590,10 @@
 			]
 		},
 		"src/contracts/klaytn-contracts/token/KIP17/KIP17Mintable.sol": {
-			"keccak256": "0x0129b9404f1edaeb9f9f6691540512a109d2447965550907ab11651f75ec7776",
+			"keccak256": "0x818e6cf7f762eac79743d620db790929e81d4d032bdc42c347669f0f6c0fd60d",
 			"urls": [
-				"bzz-raw://d8c84dcead63d71f1cb4e95e2f91173ab5011f7ff2cca2cb1292cf2e4517de1e",
-				"dweb:/ipfs/QmevymbpnHyKJvM5e81NGYuWXE2rKh16r2U878TJYegm4y"
+				"bzz-raw://ccd304bface4561f379807d083c4d5838b3caa5400a0e0399335a023a4bfc09c",
+				"dweb:/ipfs/QmWUJWvgQKPrRMF6v1M6hWHygse7Nt1nEwNBBKYvzbdqqp"
 			]
 		},
 		"src/contracts/klaytn-contracts/utils/Address.sol": {
