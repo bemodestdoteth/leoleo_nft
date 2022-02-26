@@ -32,7 +32,7 @@ contract KIP17Mintable is KIP17, MinterRole {
      * @param tokenId The token id to mint.
      * @return A boolean that indicates if the operation was successful.
      */
-    function mint(address to, uint256 tokenId) public onlyMinter returns (bool) {
+    function mint(address to, uint256 tokenId) public onlyMinter payable returns (bool) {
         _mint(to, tokenId);
         return true;
     }
