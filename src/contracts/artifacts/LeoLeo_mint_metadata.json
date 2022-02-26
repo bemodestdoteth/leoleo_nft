@@ -11,6 +11,11 @@
 						"internalType": "string",
 						"name": "_baseURI",
 						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_unrevealedContract",
+						"type": "address"
 					}
 				],
 				"payable": false,
@@ -73,7 +78,7 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_to",
+						"name": "_holder",
 						"type": "address"
 					},
 					{
@@ -83,7 +88,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "Minted",
+				"name": "Migrated",
 				"type": "event"
 			},
 			{
@@ -213,26 +218,6 @@
 				"type": "function"
 			},
 			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "_tokenId",
-						"type": "uint256[]"
-					}
-				],
-				"name": "batchMint",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"constant": true,
 				"inputs": [],
 				"name": "batchMintLimit",
@@ -356,12 +341,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_to",
+						"name": "to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_tokenId",
+						"name": "tokenId",
 						"type": "uint256"
 					}
 				],
@@ -441,6 +426,21 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_state",
+						"type": "bool"
+					}
+				],
+				"name": "pause",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -730,6 +730,15 @@
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "triggerMigration",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -765,6 +774,14 @@
 				},
 				"isOwner()": {
 					"details": "Returns true if the caller is the current owner."
+				},
+				"mint(address,uint256)": {
+					"details": "Function to mint tokens.",
+					"params": {
+						"to": "The address that will receive the minted tokens.",
+						"tokenId": "The token id to mint."
+					},
+					"return": "A boolean that indicates if the operation was successful."
 				},
 				"name()": {
 					"details": "Gets the token name.",
@@ -852,7 +869,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/contracts/LeoLeo_beforereveal.sol": "LeoLeo_mint"
+			"src/contracts/LeoLeo_afterreveal.sol": "LeoLeo_mint"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -863,11 +880,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"src/contracts/LeoLeo_beforereveal.sol": {
-			"keccak256": "0xfea87efd4c2bd76530425469183dfff3f88869612791d425e574f4c57eb3b920",
+		"src/contracts/LeoLeo_afterreveal.sol": {
+			"keccak256": "0xd422fb76c34e60e80b860db15a0a2ed5026dc2a9339d289edddc56cfe263944e",
 			"urls": [
-				"bzz-raw://ddb6bfae482f710ab3314823fd704c6f8102dd372162191f1dfb9dd8a0cf2776",
-				"dweb:/ipfs/QmTpwTAyfj99om6LUoryBBZkdABarn1HCzj94jHcHeyLkM"
+				"bzz-raw://acf45ee19dbcfbd41d200b8e5aefd2b8e34e94ed38d9854671a6fc87927bb151",
+				"dweb:/ipfs/QmXPQdgLPt2LrABGFGMjYnEPq7fg6f7e8mWyFCToZCnBpN"
 			]
 		},
 		"src/contracts/klaytn-contracts/access/Roles.sol": {

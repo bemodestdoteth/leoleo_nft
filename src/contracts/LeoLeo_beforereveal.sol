@@ -9,7 +9,6 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
 
     event Minted(address _to, uint256 _tokenId);
 
-    address private burnAddress = 0x000000000000000000000000000000000000dEaD;
     string private baseURI;
     string private URIExtension = ".json";
     bool public paused = false;
@@ -27,34 +26,30 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
         return string(abi.encodePacked(baseURI, Strings.fromUint256(tokenId), URIExtension));
     }
 
-    function mint(address _to, uint256 _tokenId) public onlyMinter returns (bool)
+    function batchMint(address _to, uint256 _mintAmount) external onlyMinter
     {
-        require(!paused, "Minting has paused.");
-        require(totalSupply() < mintLimit, "Mint limit exceeded");
-        
-        super.mint(_to, _tokenId);
-        emit Minted(_to, _tokenId);
-    }
+        uint256 _tokenId = totalSupply() + 1;
 
-    function batchMint(address _to, uint256[] calldata _tokenId) external onlyMinter
-    {
-        require(!paused, "Minting has paused.");
-        require(_tokenId.length <= batchMintLimit, "Mint limit per tx exceeded");
-        for (uint256 i = totalSupply(); i < _tokenId.length; i++)
+        require(!paused, "PausedbyOwner: Minting has been paused by owner.");
+        require(_mintAmount <= batchMintLimit, "LimitExceeded: Minting limit per transaction exceeded");
+        for (uint256 i = 0; i < _mintAmount; i++)
         {
-            mint(_to, _tokenId[i]);
-            emit Minted(_to, _tokenId[i]);
+            require(!exists(_tokenId), "IdAlreadyExists: Token ID already exists in blockchain.");
+            require(_tokenId <= mintLimit, "LimitExceeded: All tokens have been sold out.");
+            mint(_to, _tokenId);
+            emit Minted(_to, _tokenId);
+            _tokenId++;
         }
-    }
-
-    function burn(address _from, uint256 tokenId) private onlyOwner
-    {
-        transferFrom(_from, burnAddress, tokenId);
     }
 
     function setBaseURI(string memory _uri) private onlyOwner
     {
         baseURI = _uri;
+    }
+
+    function burn(uint256 tokenId) public onlyOwner
+    {
+        _burn(tokenId);
     }
 
     function exists(uint256 tokenId) public view returns (bool)
@@ -67,7 +62,7 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
         return _tokensOfOwner(owner);
     }
 
-    function pause(bool _state) private onlyOwner
+    function pause(bool _state) public onlyOwner
     {
         paused = _state;
     }

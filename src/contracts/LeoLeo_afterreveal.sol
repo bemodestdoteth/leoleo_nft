@@ -8,48 +8,26 @@ import "./klaytn-contracts/token/KIP17/KIP17Mintable.sol";
 contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
 
     event Migrated(address _holder, uint256 _tokenId);
-    event Minted(address _to, uint256 _tokenId);
 
+    address private unrevealedContract;
     string private baseURI;
     string private URIExtension = ".json";
     bool public paused = false;
+    uint256 private deployedBlockNo;
     uint256 public mintLimit = 123;
     uint256 public batchMintLimit = 2;
 
-    constructor(string memory _baseURI) public 
+    constructor(string memory _baseURI, address _unrevealedContract) public 
     {
         setBaseURI(_baseURI);
+        setUnrevealedContract(_unrevealedContract);
+        deployedBlockNo = block.number;
     }
 
     function tokenURI(uint256 tokenId) public view returns (string memory)
     {
         require(_exists(tokenId), "KIP17Metadata: URI query for nonexistent token");
         return string(abi.encodePacked(baseURI, Strings.fromUint256(tokenId), URIExtension));
-    }
-
-    function mint(address _to, uint256 _tokenId) public onlyMinter returns (bool)
-    {
-        require(!paused, "Minting has paused.");
-        require(totalSupply() < mintLimit, "Mint limit exceeded");
-        
-        super.mint(_to, _tokenId);
-        emit Minted(_to, _tokenId);
-    }
-
-    function batchMint(address _to, uint256[] calldata _tokenId) external onlyMinter
-    {
-        require(!paused, "Minting has paused.");
-        require(_tokenId.length <= batchMintLimit, "Mint limit per tx exceeded");
-        for (uint256 i = totalSupply(); i < _tokenId.length; i++)
-        {
-            mint(_to, _tokenId[i]);
-            emit Minted(_to, _tokenId[i]);
-        }
-    }
-
-    function setBaseURI(string memory _uri) private onlyOwner
-    {
-        baseURI = _uri;
     }
 
     function exists(uint256 tokenId) public view returns (bool)
@@ -62,29 +40,42 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
         return _tokensOfOwner(owner);
     }
 
-    function pause(bool _state) private onlyOwner
+    function setBaseURI(string memory _uri) private onlyOwner
+    {
+        baseURI = _uri;
+    }
+
+    function setUnrevealedContract(address _unrevealedContract) private onlyOwner
+    {
+        unrevealedContract = _unrevealedContract;
+    }
+
+    function pause(bool _state) public onlyOwner
     {
         paused = _state;
     }
 
-    function migrate(uint tokenId) public onlyOwner
+    function triggerMigration() public onlyOwner
+    {
+        require (block.number >= deployedBlockNo + 100);
+        for (uint256 i = 1; i <= 5 /*mintLimit*/; i++)
+        {
+            migrate(i);
+        }
+    }
+
+    function migrate(uint _tokenId) private onlyOwner
     {
         bool done = true;
         bytes memory data = "";
 
-        (done, data) = unrevealedContract.call(abi.encodeWithSignature("ownerOf(uint256)", tokenId));
-        if(!done) revert();
+        (done, data) = unrevealedContract.call(abi.encodeWithSignature("ownerOf(uint256)", _tokenId));
         address holder = abi.decode(data, (address));
 
-        require(msg.sender == holder, "Not allowed");
-
         // Mint and burn
-        done = mint(holder, tokenId);
-        if(!done) revert();
+        done = mint(holder, _tokenId);
+        (done, data) = unrevealedContract.call(abi.encodeWithSignature("burn(uint256)", _tokenId));
 
-        (done, data) = unrevealedContract.call(abi.encodeWithSignature("burn(address, uint256)", tokenId));
-        if(!done) revert();
-
-        emit Migrated(holder, tokenId);
+        emit Migrated(holder, _tokenId);
     }
 }
