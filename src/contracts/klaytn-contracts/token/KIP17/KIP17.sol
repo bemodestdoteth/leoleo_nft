@@ -120,7 +120,7 @@ contract KIP17 is KIP13, IKIP17 {
      * @param approved representing the status of the approval to be set
      */
     function setApprovalForAll(address to, bool approved) public {
-        require(to != msg.sender, "KIP17: approve to caller");
+        // require(to != msg.sender, "KIP17: approve to caller");
 
         _operatorApprovals[msg.sender][to] = approved;
         emit ApprovalForAll(msg.sender, to, approved);
