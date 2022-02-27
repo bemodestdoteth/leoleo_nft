@@ -3,3 +3,4 @@ node_modules
 private-keys.js
 package-lock.json
 backup
+contracts/artifacts

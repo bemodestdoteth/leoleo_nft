@@ -5,7 +5,7 @@ import "./klaytn-contracts/ownership/Ownable.sol";
 import "./klaytn-contracts/token/KIP17/KIP17Full.sol";
 import "./klaytn-contracts/token/KIP17/KIP17Mintable.sol";
 
-contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
+contract LeoLeo_mint is KIP17Full("leoleo-nft", "LeoLeo"), KIP17Mintable, Ownable {
 
     event Minted(address _to, uint256 _tokenId);
 
@@ -47,7 +47,7 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
         baseURI = _uri;
     }
 
-    function burn(uint256 tokenId) public onlyOwner
+    function burn(uint256 tokenId) public
     {
         _burn(tokenId);
     }

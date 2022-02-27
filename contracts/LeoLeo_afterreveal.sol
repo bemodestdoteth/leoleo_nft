@@ -5,7 +5,7 @@ import "./klaytn-contracts/ownership/Ownable.sol";
 import "./klaytn-contracts/token/KIP17/KIP17Full.sol";
 import "./klaytn-contracts/token/KIP17/KIP17Mintable.sol";
 
-contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
+contract LeoLeo_mint is KIP17Full("leoleo-nft", "LeoLeo"), KIP17Mintable, Ownable {
 
     event Migrated(address _holder, uint256 _tokenId);
 
@@ -76,7 +76,7 @@ contract LeoLeo_mint is KIP17Full("leoleo", "LeoLeo"), KIP17Mintable, Ownable {
         // Mint and burn
         done = mint(holder, _tokenId);
         require(done);
-        
+
         (done, data) = unrevealedContract.call(abi.encodeWithSignature("burn(uint256)", _tokenId));
 
         emit Migrated(holder, _tokenId);
