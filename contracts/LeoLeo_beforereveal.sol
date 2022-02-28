@@ -9,15 +9,19 @@ contract LeoLeo_mint is KIP17Full("leoleo-nft", "LeoLeo"), KIP17Mintable, Ownabl
 
     event Minted(address _to, uint256 _tokenId);
 
+    address payable swapFeeReceiver;
     string private baseURI;
     string private URIExtension = ".json";
     bool public paused = false;
     uint256 public mintLimit = 5; // 123
     uint256 public batchMintLimit = 2;
+    uint256 private swapFee = 0.05*(10**18);
+    uint256 private swapFeeRemain;
 
-    constructor(string memory _baseURI) public 
+    constructor(string memory _baseURI) public payable
     {
         setBaseURI(_baseURI);
+        swapFeeRemain = msg.value;
     }
 
     function tokenURI(uint256 tokenId) public view returns (string memory)
@@ -40,6 +44,12 @@ contract LeoLeo_mint is KIP17Full("leoleo-nft", "LeoLeo"), KIP17Mintable, Ownabl
             emit Minted(_to, _tokenId);
             _tokenId++;
         }
+    }
+
+    function sendSwapFee(address payable _swapFeeReceiver) public onlyOwner
+    {
+        require(address(this).balance >= swapFee, "notEnoughBalance: Not enough klay to send swap fee.");
+        _swapFeeReceiver.transfer(swapFee);
     }
 
     function setBaseURI(string memory _uri) private onlyOwner
@@ -65,5 +75,11 @@ contract LeoLeo_mint is KIP17Full("leoleo-nft", "LeoLeo"), KIP17Mintable, Ownabl
     function pause(bool _state) public onlyOwner
     {
         paused = _state;
+    }
+
+    function withdraw() public payable onlyOwner
+    {
+        address payable _withdrawaddress = 0x949A93E1137A77496222D21EF31893ABfa95d62c;
+        _withdrawaddress.transfer(address(this).balance);
     }
 }
